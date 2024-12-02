@@ -5,14 +5,15 @@ import (
 	"math"
 	"os"
 	"slices"
-	"strconv"
 	"strings"
+
+	utils "github.com/username/advent-of-code/2024/gocode/util"
 )
 
 func main() {
-	input, err := os.ReadFile("../input-1")
+	input, err := os.ReadFile("input-1")
 	if err != nil {
-		fmt.Println("error reading file")
+		fmt.Println("error reading file: ", err)
 		return
 	}
 
@@ -32,15 +33,6 @@ func main() {
 	fmt.Println("Similarity score: ", similarityScore)
 }
 
-func parseInt(s string) int {
-	var integer, err = strconv.Atoi(s)
-	if err != nil {
-		panic(s)
-	}
-
-	return integer
-}
-
 func parseToLeftsAndRights(input string) ([]int, []int) {
 	var lines = strings.Split(input, "\n")
 
@@ -49,8 +41,8 @@ func parseToLeftsAndRights(input string) ([]int, []int) {
 	for _, line := range lines {
 		tuple := strings.Split(line, "   ")
 
-		lefts = append(lefts, parseInt(tuple[0]))
-		rights = append(rights, parseInt(tuple[1]))
+		lefts = append(lefts, utils.ParseInt(tuple[0]))
+		rights = append(rights, utils.ParseInt(tuple[1]))
 	}
 
 	return lefts, rights

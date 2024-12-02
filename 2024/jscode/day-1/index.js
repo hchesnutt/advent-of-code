@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function main() {
-    const input = fs.readFileSync("../input-1", 'utf-8');
+    const input = fs.readFileSync("input-1", 'utf-8');
 
     const [left, right] = parseLeftAndRight(input);
 
