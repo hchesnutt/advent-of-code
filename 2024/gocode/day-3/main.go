@@ -10,10 +10,6 @@ import (
 
 const SpecialCharacters string = "?~!@#$%^&*+=-'/<>;: []{}"
 
-type CurrentMatch struct {
-	value []rune
-}
-
 func main() {
 	rawInput := utils.ReadFileString("input")
 

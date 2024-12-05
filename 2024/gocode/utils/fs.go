@@ -6,9 +6,13 @@ import (
 )
 
 func ReadFileString(path string) string {
-	file, err := os.ReadFile(path)
+	return string(ReadFileBytes(path))
+}
+
+func ReadFileBytes(path string) []byte {
+	fileBytes, err := os.ReadFile(path)
 	if err != nil {
 		fmt.Println("Error reading file: ", path)
 	}
-	return string(file)
+	return fileBytes
 }
